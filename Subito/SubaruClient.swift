@@ -106,7 +106,7 @@ func logIn(username: String, password: String, onDone: @escaping (Bool) -> Void)
         for cookie in cookies {
             print(cookie.name)
             if (cookie.name == "JSESSIONID") {
-                KeychainSwift().set(cookie.value, forKey: sessionTokenKeyName, withAccess: .accessibleAfterFirstUnlockThisDeviceOnly)
+                KeychainSwift().set(cookie.value, forKey: sessionTokenKeyName)
                 return onDone(true)
             }
         }
